@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>
+			search
+		</title>
+	</head>
+	<body>
+		<form th:action="@{/searchbyid}" method="post">
+			<label>Enter Id:</label>
+			<input type="number" name="id">
+			<button type="submit">search</button>
+		</form>
+		<div th:if = "${employee!=null}">
+			<h3>employee details</h3>
+			<p><strong>Id:</strong><span th:text = "${employee.id}"></span></p>
+			<p><strong>Name:</strong><span th:text = "${employee.name}"></span></p>
+			<p><strong>Age:</strong><span th:text = "${employee.age}"></span></p>
+			<p><strong>Department:</strong><span th:text = "${employee.department}"></span></p>
+			<p><strong>Location:</strong><span th:text = "${employee.location}"></span></p>
+			<p><strong>Salary:</strong><span th:text = "${employee.salary}"></span></p>
+			<p><strong>Gender:</strong><span th:text = "${employee.gender}"></span></p>
+			<p><strong>Monthsalary:</strong><span th:text = "${employee.monthsalary}"></span></p>
+			<p><strong>Basicsalary:</strong><span th:text = "${employee.basicsalary}"></span></p>
+			<p><strong>Allowance:</strong><span th:text = "${employee.allowance}"></span></p>
+			<p><strong>Bonus:</strong><span th:text = "${employee.bonus}"></span></p>
+			<p><strong>Medicalinsurance:</strong><span th:text = "${employee.medicalinsurance}"></span></p>	
+		</div>
+		<div th:if="${employee==null}">
+			<p>No product found with goven ID</p>
+		</div>
+	</body>
+</html>

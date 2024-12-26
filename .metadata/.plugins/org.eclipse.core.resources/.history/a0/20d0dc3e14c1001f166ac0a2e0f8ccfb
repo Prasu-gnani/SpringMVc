@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>
+			employee
+		</title>
+	</head>
+	<body>
+		<form  th:action="@{/editemployeesave}" th:field="${employee}" method="post">
+			<h1>Employee details</h1>
+			<label>Id:</label>
+			<input type="text" id="name" name="id">
+			<br><br>
+			<label>Name:</label>
+			<input type="text" id="name" name="name">
+			<br><br>
+			<label>Age:</label>
+			<input type="number" id="age" name="age">
+			<br><br>
+			<label>Department:</label>
+			<input type="text" id="department" name="department">
+			<br><br>
+			<label>Salary:</label>
+			<input type="number" id="number" name="salary">
+			<br><br>
+			<label>Location:</label>
+			<input type="text" id="location" name="location">
+			<br><br>
+			<label>Gender:</label>
+			<input type="text" id="gender" name="gender">
+			<br><br>
+			
+			<button type="submit">Update employee</button>
+			
+		</form>
+	</body>
+</html>

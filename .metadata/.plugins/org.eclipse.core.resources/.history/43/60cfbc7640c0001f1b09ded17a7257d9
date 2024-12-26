@@ -1,0 +1,32 @@
+package com.employee.springbootmvc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.employee.springbootmvc.model.EmployeeModel;
+import com.employee.springbootmvc.repository.Employeerepository;
+
+@Service
+public class Employeeservice {
+	@Autowired
+	Employeerepository employeerepository;
+	
+	public void saveemployeedetails(EmployeeModel employeeModel)
+	{
+		double allowance;
+		double bonus;
+		double medicalinsurance;
+		double basicsalary;
+		double monthlysalary;
+		
+		if(employeeModel.getSalary()<=350000)
+		{
+			bonus=10000;
+			allowance=2000;
+			medicalinsurance=50000;
+			basicsalary=employeeModel.getSalary()-bonus-allowance-medicalinsurance;
+		}
+	}
+	
+
+}

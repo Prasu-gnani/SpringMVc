@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>
+			product details
+		</title>
+	</head>
+	<body>
+		<form  th:action="@{/saveproduct}" method="post">
+			<h1>Product details</h1>
+			<label>Name:</label>
+			<input type="text" id="name" name="name">
+			<br><br>
+			<label>Brand:</label>
+			<input type="text" id="name" name="brand">
+			<br><br>
+			<label>MadeIn:</label>
+			<input type="madein" id="madein" name="madeIn">
+			<br><br>
+			<label>Price:</label>
+			<input type="price" id="price" name="price">
+			<br><br>
+			<label>Quantity:</label>
+			<input type="quantity" id="quantity" name="quantity">
+			<br><br>
+			<label>Discountrate:</label>
+			<input type="discountrate" id="discountrate" name="discountrate">
+			<br><br>
+			<label>Taxrate:</label>
+			<input type="taxrate" id="taxprice" name="taxrate">
+			<br><br>
+			<button type="submit">saveproduct</button>
+			<button type="reset">reset</button>
+			
+		</form>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>
+			employee list
+		</title>
+	</head>
+	<body>
+		<div>
+			<h2>
+				employee list
+			</h2>
+			<table border="2">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Department</th>
+						<th>Location</th>
+						<th>Salary</th>
+						<th>Gender</th>
+						<th>Monthsalary</th>
+						<th>Basicsalary</th>
+						<th>Allowance</th>
+						<th>Bonus</th>
+						<th>Medicalinsurance</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr th:each = "employee:${employees}">
+					<td th:text = "${employee.id}"></td>
+					<td th:text = "${employee.name}"></td>
+					<td th:text = "${employee.age}"></td>
+					<td th:text = "${employee.department}"></td>
+					<td th:text = "${employee.location}"></td>
+					<td th:text = "${employee.salary}"></td>
+					<td th:text = "${employee.gender}"></td>
+					<td th:text = "${employee.monthsalary}"></td>
+					<td th:text = "${employee.basicsalary}"></td>
+					<td th:text = "${employee.allowance}"></td>
+					<td th:text = "${employee.bonus}"></td>
+					<td th:text = "${employee.medicalinsurance}"></td>
+					
+					<td> <a th:href="@{'/delete/'+ ${employee.id}}">Delete</a> </td>
+				</tr>
+			  </tbody>
+			</table>
+		</div>
+	</body>
+</html>

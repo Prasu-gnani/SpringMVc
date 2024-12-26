@@ -1,0 +1,68 @@
+package com.sathya.springbootmvc.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sathya.springbootmvc.entity.Productentity;
+import com.sathya.springbootmvc.model.Productmodel;
+import com.sathya.springbootmvc.repository.Productrepository;
+
+@Service
+public class Productservice {
+	@Autowired
+	Productrepository productrepository;
+	public void  deleteproductbyid(Long id)
+	{
+		productrepository.deletebyid(id);
+	}
+	public Productentity searchbyid(Long id)
+	{
+		Optional<Productentity> optionalData = productrepository.findById(id);
+		if(optionalData.isPresent())
+		{
+			Productentity product = optionalData.get();
+			return product;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
+		
+	public List<Productentity> getallproducts(){
+		List<Productentity> products = productrepository.findAll();
+		return products;
+		
+	}
+	public void saveProductcontroller(Productmodel productmodel)
+	{
+		double stockvalue;
+		stockvalue=productmodel.getPrice()*productmodel.getQuantity();
+		double discountprice;
+		discountprice=productmodel.getPrice()*productmodel.getDiscountrate()/100;
+		double offerprice;
+		offerprice=productmodel.getPrice()-discountprice;
+		double finalprice;
+		finalprice = productmodel.getTaxrate() + offerprice;
+		
+		Productentity productentity = new Productentity();
+		productentity.setName(productmodel.getName());
+		productentity.setBrand(productmodel.getBrand());
+		productentity.setMadein(productmodel.getMadeIn());
+		productentity.setPrice(productmodel.getPrice());
+		productentity.setQuantity(productmodel.getQuantity());
+		productentity.setDiscountrate(productmodel.getDiscountrate());
+		productentity.setTaxrate(productmodel.getTaxrate());
+		productentity.setStockvalue(stockvalue);
+		productentity.setDiscountprice(discountprice);
+		productentity.setOfferprice(offerprice);
+		productentity.setFinalprice(finalprice);
+		productrepository.save(productentity);
+        
+	}
+
+}
